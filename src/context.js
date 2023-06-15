@@ -5,7 +5,17 @@ const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  return <AppContext.Provider value='hello'>{children}</AppContext.Provider>;
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerms] = useState('a');
+  const [cockTails, setCockTails] = useState([]);
+
+  return (
+    <AppContext.Provider
+      value={{ loading, searchTerm, cockTails, setSearchTerms }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
 };
 
 export const useGlobalContext = () => {
