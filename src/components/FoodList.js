@@ -13,9 +13,19 @@ const FoodList = () => {
     return <h2 className='section-title'>No food matched your search!</h2>;
   }
   return (
-    <div>
-      <h2>food list component</h2>
-    </div>
+    <section className='section'>
+      <h2 className='section-title'>Food list</h2>
+      <div className='cocktails-center'>
+        {food.map((item) => {
+          return (
+            <Food
+              key={item.id}
+              {...item}
+            />
+          );
+        })}
+      </div>
+    </section>
   );
 };
 

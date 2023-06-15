@@ -7,7 +7,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerms] = useState('a');
+  const [searchTerm, setSearchTerm] = useState('a');
   const [food, setFood] = useState([]);
 
   const fetchFood = async () => {
@@ -53,7 +53,7 @@ const AppProvider = ({ children }) => {
   }, [searchTerm]);
 
   return (
-    <AppContext.Provider value={{ loading, food, setSearchTerms }}>
+    <AppContext.Provider value={{ loading, food, setSearchTerm }}>
       {children}
     </AppContext.Provider>
   );
