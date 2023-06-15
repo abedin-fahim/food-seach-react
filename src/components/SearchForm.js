@@ -9,11 +9,18 @@ const SearchForm = () => {
     setSearchTerm(searchValueRef.current.value);
   };
 
-  useEffect
+  useEffect(() => {
+    searchValueRef.current.focus();
+  }, []);
 
   return (
     <section className='section search'>
-      <form className='search-form'>
+      <form
+        className='search-form'
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <div className='form-control'>
           <label htmlFor='name'>Search for your favorite meal</label>
           <input
